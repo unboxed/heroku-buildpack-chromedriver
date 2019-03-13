@@ -29,7 +29,7 @@ if [ -f $ENV_DIR/CHROMEDRIVER_VERSION ]; then
   VERSION=$(cat $ENV_DIR/CHROMEDRIVER_VERSION)
 else
   topic "Looking up latest chromedriver version"
-  CHROME_VERSION=$($GOOGLE_CHROME_BIN --version | sed -r 's/[^0-9]+([0-9]+\.[0-9]+\.[0-9]+).*/\1/g')
+  CHROME_VERSION=$($HOME/.apt/usr/bin/google-chrome-stable --version | sed -r 's/[^0-9]+([0-9]+\.[0-9]+\.[0-9]+).*/\1/g')
   LATEST="https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION"
   VERSION=`curl -s $LATEST`
 fi
